@@ -1,0 +1,118 @@
+{
+  "select_language": "Select Language",
+  "gender": "Select a gender",
+  "genderSelect": {
+    "genderName": {
+      "male": "Male",
+      "female": "Female"
+    }
+  },
+  "hairloss": {
+    "keine": "No hair loss",
+    "light": "Receding hairline light",
+    "light_moderate": "Receding hairline + slight tonsure",
+    "middle": "Receding hairline strong + tonsure",
+    "middle_rough": "Semi bald",
+    "rough": "Bald"
+  },
+  "hairColor": {
+    "black": "Black",
+    "brown": "Brown",
+    "red": "Red",
+    "gray": "Gray",
+    "blond": "Blond",
+    "none": "None of them"
+  },
+  "next": "Next",
+  "back": "Back",
+  "step": "STEP",
+  "finalStep": "FINAL STEP",
+  "finished": "TÉLÉCHARGER LA PHOTO",
+  "no": "No",
+  "yes": "Yes",
+  "upload_btn": "Télécharger",
+  "hair_loss": "Describe your hair loss",
+  "hair_color": "Quelle est la couleur de vos cheveux?",
+  "since_when": "How long have you been suffering from hair loss?",
+  "satisfied": "How satisfied are you with your current hair situation?",
+  "hair_suffer": "Do any of your parents suffer from hair loss?",
+  "hair_transplant": "Have you ever had a hair transplant?",
+  "hair_transplant_next_step": "When did you had a hair transplant?",
+  "planing": "When are you planning to have a hair transplant?",
+  "label": {
+    "one": "Very sad",
+    "two": "Sad",
+    "three": "Normal",
+    "four": "Happy",
+    "five": "Very happy"
+  },
+  "howFast": {
+    "fast": "So schnell wie möglich",
+    "month": "In 3 Monaten",
+    "year": "In 1 Jahr",
+    "notPlaned": "Noch nicht gesplant"
+  },
+  "upload": "Now you can upload photos of your current hair situation",
+  "regards": "Thank you!",
+  "results": "To whom should we send the results?",
+  "done": "Almost Done",
+  "year": "année",
+  "years": "années",
+  "personal_data": "Veuillez saisir vos données personnelles",
+  "form": {
+    "agb": {
+      "first_text": "J'ai lu le",
+      "link_text": "protection des données",
+      "third_text": "et l'accepter."
+    },
+    "firstName": "Firstname",
+    "firstName_warning": "Firstname is required",
+    "lastName": "Lastname",
+    "lastName_warning": "Lastname is required",
+    "country_warning": "Le pays est requis",
+    "email": "Email",
+    "country": "Country",
+    "email_warning": "Email is required",
+    "email_not_correct": "Email is not correct",
+    "mobile": "Mobile",
+    "mobile_warning": "Mobile is required",
+    "agreement_warning": "L'accord de l'entreprise est requis",
+    "full_name": "Prénom et nom",
+    "full_name_warning": "Le nom est requis",
+    "button": "Send",
+    "text_when_done": "Retour à la page d'accueil",
+    "send_text": "Your data has been transmitted, we will contact you as soon as possible",
+    "back_to_homepage": "Back to homepage",
+    "security": {
+      "param1": "100% Free",
+      "param2": "SSL data transfer",
+      "param3": "Analyse from experts"
+    }
+  },
+  "whenPlanC": {
+    "param1": "As soon as possible",
+    "param2": "In 3 months",
+    "param3": "In 1 year",
+    "param4": "Not yet scheduled"
+  },
+  "yearsOfSuffer": {
+    "param1": "Less than 1 year",
+    "param2": "1 - 3 years",
+    "param3": "3 - 5 years",
+    "param4": "More than 5 years"
+  },
+  "helperText": {
+    "step1": "Gender is important for good planning. Both men and women can have different reasons for hair loss.",
+    "step2": "Depending on the stage of your hair loss, different hair transplant results can be achieved.",
+    "step3": "The hair color is not decisive for the result.",
+    "step4": "Often hereditary hair loss (androgenetic alopecia) is the cause of hair loss.",
+    "step5": "Based on the duration of hair loss, we can make a better prognosis for the further course of your hair loss.",
+    "step6": "The information of a hair transplant from the past is crucial for another procedure in the future.",
+    "step7": "",
+    "step8": "By specifying a time period, we can ensure a smooth process for your hair transplant."
+  },
+  "surgeonTransplants": "surgeon for hair transplants",
+  "frontView": "Vue de face",
+  "topView": "Vue de dessusVue de dessus",
+  "sendFormBtn": "Send"
+}
