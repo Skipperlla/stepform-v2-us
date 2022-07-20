@@ -68,7 +68,6 @@ export default function Form() {
     name,
     number,
   };
-  console.log(state);
   return (
     <div className="container-main">
       <Navi

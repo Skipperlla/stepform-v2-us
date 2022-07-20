@@ -7,7 +7,6 @@ import { data } from "../../const";
 
 export default function WhenPlanC(props) {
   const { t } = useTranslation();
-  console.log("WhenPlanC", props);
   const clickNext = async (e) => {
     props.setLoadStep(true);
     setTimeout(() => {

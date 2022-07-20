@@ -43,7 +43,7 @@ export default function PersonalFields(props) {
       lastName: "",
       phone: "",
       email: "",
-      country: countries[0].label,
+      country: countries[1].label,
     },
   });
 
@@ -104,14 +104,33 @@ export default function PersonalFields(props) {
       name: "Right_Side",
     },
   ];
+  const [localCountry, setLocalCountry] = useState("");
   useEffect(() => {
-    if (props?.succesForm)
-      setTimeout(() => {
-        window.location.replace(
-          "https://cosmedica.com/hair-transplant-in-turkey-lp-uk"
-        );
-      }, 1500);
+    const { country_code } = JSON.parse(localStorage.getItem("geolocation"));
+    setLocalCountry(country_code);
+    if (props?.succesForm) {
+      if (country_code === "US" || country_code === "USA") {
+        setTimeout(() => {
+          window.location.replace(
+            "https://cosmedica.com/hair-transplant-in-turkey-lp-usa"
+          );
+        }, 1500);
+      } else if (country_code === "GB" || country_code === "UK") {
+        setTimeout(() => {
+          window.location.replace(
+            "https://cosmedica.com/hair-transplant-in-turkey-lp-uk"
+          );
+        }, 1500);
+      } else if (country_code === "CA") {
+        setTimeout(() => {
+          window.location.replace(
+            "https://cosmedica.com/hair-transplant-in-turkey-lp-ca"
+          );
+        }, 1500);
+      }
+    }
   }, [props.succesForm]);
+  useEffect(() => {}, []);
   return (
     <>
       {props.succesForm ? (
@@ -143,7 +162,14 @@ export default function PersonalFields(props) {
                       {
                         ...props.state,
                         ...values,
-                        lead_source: "drleventacar.fr",
+                        lead_source:
+                          country_code === "US" || country_code === "USA"
+                            ? "LP USA"
+                            : country_code === "GB" || country_code === "UK"
+                            ? "LP UK"
+                            : country_code === "CA"
+                            ? "LP CA"
+                            : "none",
                       },
                     ],
                   },
@@ -163,9 +189,7 @@ export default function PersonalFields(props) {
                           props.setSuccesForm(true);
                           setLoad(false);
                         })
-                        .catch((err) => {
-                          console.log(err.response);
-                        });
+                        .catch((err) => {});
                     });
                   } else {
                     props.setSuccesForm(true);
@@ -330,10 +354,19 @@ export default function PersonalFields(props) {
                 <div className="flexInputForm">
                   <div className="inputMaxWidth">
                     <p className="input__form_title">{t("form.mobile")}</p>
+
                     <PhoneInput
                       containerClass={"wrapper_input__form"}
                       name="phone"
-                      country={"fr"}
+                      country={
+                        localCountry === "US" || localCountry === "USA"
+                          ? "us"
+                          : localCountry === "GB" || localCountry === "UK"
+                          ? "gb"
+                          : localCountry === "CA"
+                          ? "ca"
+                          : "tr"
+                      }
                       value={values.phone}
                       onChange={(e) => {
                         setFieldValue("phone", e);

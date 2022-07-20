@@ -11,7 +11,7 @@ import "../i18nextConf";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import { fas } from "@fortawesome/free-solid-svg-icons";
-
+import axios from "axios";
 library.add(fas);
 
 function MyApp(props) {
@@ -24,7 +24,21 @@ function MyApp(props) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+  const getData = async () => {
+    const res = await axios.get("https://geolocation-db.com/json/");
+    if (
+      !Object.getOwnPropertyNames(
+        JSON.parse(localStorage.getItem("geolocation") || "{}")
+      ).length
+    )
+      localStorage.setItem("geolocation", JSON.stringify(res.data));
+    // if (!JSON.parse(localStorage.getItem("unfinished") || "{}").length)
+    //   router.push("/steps/1");
+  };
 
+  React.useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
       <ThemeProvider theme={theme}>
