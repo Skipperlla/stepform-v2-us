@@ -26,14 +26,8 @@ function MyApp(props) {
   }, []);
   const getData = async () => {
     const res = await axios.get("https://geolocation-db.com/json/");
-    if (
-      !Object.getOwnPropertyNames(
-        JSON.parse(localStorage.getItem("geolocation") || "{}")
-      ).length
-    )
-      localStorage.setItem("geolocation", JSON.stringify(res.data));
-    // if (!JSON.parse(localStorage.getItem("unfinished") || "{}").length)
-    //   router.push("/steps/1");
+
+    localStorage.setItem("geolocation", JSON.stringify(res.data));
   };
 
   React.useEffect(() => {
