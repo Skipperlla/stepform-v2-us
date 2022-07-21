@@ -23,6 +23,7 @@ import search from "../../assets/final-step/search.svg";
 import axios from "axios";
 const baseURL = "https://stepform.herokuapp.com/api/v1";
 import { countries, data } from "../../const";
+import { useRouter } from "next/router";
 
 export default function PersonalFields(props) {
   const { t } = useTranslation();
@@ -104,24 +105,36 @@ export default function PersonalFields(props) {
       name: "Right_Side",
     },
   ];
+  const router = useRouter();
   const [localCountry, setLocalCountry] = useState("");
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("geolocation"));
     setLocalCountry(data?.country_code);
     if (props?.succesForm) {
-      if (data?.country_code === "US" || data?.country_code === "USA") {
+      if (
+        data?.country_code === "US" ||
+        data?.country_code === "USA" ||
+        router?.pathname?.includes("-usa")
+      ) {
         setTimeout(() => {
           window.location.replace(
             "https://cosmedica.com/hair-transplant-in-turkey-lp-usa"
           );
         }, 1500);
-      } else if (data?.country_code === "GB" || data?.country_code === "UK") {
+      } else if (
+        data?.country_code === "GB" ||
+        data?.country_code === "UK" ||
+        router?.pathname?.includes("-uk")
+      ) {
         setTimeout(() => {
           window.location.replace(
             "https://cosmedica.com/hair-transplant-in-turkey-lp-uk"
           );
         }, 1500);
-      } else if (data?.country_code === "CA") {
+      } else if (
+        data?.country_code === "CA" ||
+        router?.pathname?.includes("-ca")
+      ) {
         setTimeout(() => {
           window.location.replace(
             "https://cosmedica.com/hair-transplant-in-turkey-lp-ca"
@@ -130,7 +143,7 @@ export default function PersonalFields(props) {
       }
     }
   }, [props.succesForm]);
-  useEffect(() => {}, []);
+  console.log();
   return (
     <>
       {props.succesForm ? (
@@ -163,11 +176,16 @@ export default function PersonalFields(props) {
                         ...props.state,
                         ...values,
                         lead_source:
-                          localCountry === "US" || localCountry === "USA"
+                          localCountry === "US" ||
+                          localCountry === "USA" ||
+                          router?.pathname?.includes("-usa")
                             ? "LP USA"
-                            : localCountry === "GB" || localCountry === "UK"
+                            : localCountry === "GB" ||
+                              localCountry === "UK" ||
+                              router?.pathname?.includes("-uk")
                             ? "LP UK"
-                            : localCountry === "CA"
+                            : localCountry === "CA" ||
+                              router?.pathname?.includes("-ca")
                             ? "LP CA"
                             : "none",
                       },
