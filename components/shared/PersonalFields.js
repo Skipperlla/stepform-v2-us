@@ -114,7 +114,7 @@ export default function PersonalFields(props) {
       if (
         data?.country_code === "US" ||
         data?.country_code === "USA" ||
-        router?.pathname?.includes("-usa")
+        window?.location?.href?.includes("-usa")
       ) {
         setTimeout(() => {
           window.location.replace(
@@ -124,7 +124,7 @@ export default function PersonalFields(props) {
       } else if (
         data?.country_code === "GB" ||
         data?.country_code === "UK" ||
-        router?.pathname?.includes("-uk")
+        window?.location?.href?.includes("-uk")
       ) {
         setTimeout(() => {
           window.location.replace(
@@ -133,7 +133,7 @@ export default function PersonalFields(props) {
         }, 1500);
       } else if (
         data?.country_code === "CA" ||
-        router?.pathname?.includes("-ca")
+        window?.location?.href?.includes("-ca")
       ) {
         setTimeout(() => {
           window.location.replace(
@@ -143,7 +143,6 @@ export default function PersonalFields(props) {
       }
     }
   }, [props.succesForm]);
-  console.log();
   return (
     <>
       {props.succesForm ? (
@@ -178,14 +177,14 @@ export default function PersonalFields(props) {
                         lead_source:
                           localCountry === "US" ||
                           localCountry === "USA" ||
-                          router?.pathname?.includes("-usa")
+                          window?.location?.href?.includes("-usa")
                             ? "LP USA"
                             : localCountry === "GB" ||
                               localCountry === "UK" ||
-                              router?.pathname?.includes("-uk")
+                              window?.location?.href?.includes("-uk")
                             ? "LP UK"
                             : localCountry === "CA" ||
-                              router?.pathname?.includes("-ca")
+                              window?.location?.href?.includes("-ca")
                             ? "LP CA"
                             : "none",
                       },
@@ -214,9 +213,7 @@ export default function PersonalFields(props) {
                     setLoad(false);
                   }
                 })
-                .catch((err) => {
-                  console.log(err.response);
-                });
+                .catch((err) => {});
               // ! New Axios
 
               // newObject.name = values.name;
