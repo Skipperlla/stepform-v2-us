@@ -106,22 +106,22 @@ export default function PersonalFields(props) {
   ];
   const [localCountry, setLocalCountry] = useState("");
   useEffect(() => {
-    const { country_code } = JSON.parse(localStorage.getItem("geolocation"));
-    setLocalCountry(country_code);
+    const data = JSON.parse(localStorage.getItem("geolocation"));
+    setLocalCountry(data?.country_code);
     if (props?.succesForm) {
-      if (country_code === "US" || country_code === "USA") {
+      if (data?.country_code === "US" || data?.country_code === "USA") {
         setTimeout(() => {
           window.location.replace(
             "https://cosmedica.com/hair-transplant-in-turkey-lp-usa"
           );
         }, 1500);
-      } else if (country_code === "GB" || country_code === "UK") {
+      } else if (data?.country_code === "GB" || data?.country_code === "UK") {
         setTimeout(() => {
           window.location.replace(
             "https://cosmedica.com/hair-transplant-in-turkey-lp-uk"
           );
         }, 1500);
-      } else if (country_code === "CA") {
+      } else if (data?.country_code === "CA") {
         setTimeout(() => {
           window.location.replace(
             "https://cosmedica.com/hair-transplant-in-turkey-lp-ca"
@@ -163,11 +163,11 @@ export default function PersonalFields(props) {
                         ...props.state,
                         ...values,
                         lead_source:
-                          country_code === "US" || country_code === "USA"
+                          localCountry === "US" || localCountry === "USA"
                             ? "LP USA"
-                            : country_code === "GB" || country_code === "UK"
+                            : localCountry === "GB" || localCountry === "UK"
                             ? "LP UK"
-                            : country_code === "CA"
+                            : localCountry === "CA"
                             ? "LP CA"
                             : "none",
                       },
@@ -358,15 +358,7 @@ export default function PersonalFields(props) {
                     <PhoneInput
                       containerClass={"wrapper_input__form"}
                       name="phone"
-                      country={
-                        localCountry === "US" || localCountry === "USA"
-                          ? "us"
-                          : localCountry === "GB" || localCountry === "UK"
-                          ? "gb"
-                          : localCountry === "CA"
-                          ? "ca"
-                          : "tr"
-                      }
+                      country={localCountry.toLowerCase()}
                       value={values.phone}
                       onChange={(e) => {
                         setFieldValue("phone", e);
